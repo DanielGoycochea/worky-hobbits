@@ -6,34 +6,22 @@
         size="64"
       ></v-progress-circular>
     </v-overlay>
-    <div class="">
-      <p>Ordenar por:</p>
-      <div>
-        <input type="radio" id="all" value="allPosts" v-model="picked">
-        <label for="all">Todos los post</label>
-      </div>
-      <div>
-        <input type="radio" id="Hobbits" value="Hobbits" v-model="picked">
-        <label for="Hobbits">Todos los Hobbits</label>
-      </div>
-      <div>
-        <p>Ordrenar por Hobbit:</p>
-        <div>
-          <input type="radio" id="Gollum" value="Gollum" v-model="picked">
-          <label for="Gollum">Gollum</label>
-          <input type="radio" id="Frodo" value="Frodo" v-model="picked">
-          <label for="Frodo">Frodo</label>
-          <input type="radio" id="Bilbo" value="Bilbo" v-model="picked">
-          <label for="Bilbo">Bilbo</label>
-          <input type="radio" id="Sam" value="Sam" v-model="picked">
-          <label for="Sam">Sam</label>
-          <input type="radio" id="Merry" value="Merry" v-model="picked">
-          <label for="Merry">Merry</label>
-          <input type="radio" id="Pippin" value="Pippin" v-model="picked">
-          <label for="Pippin">Pippin</label>
-        </div>
-      </div>
-    </div>
+    <v-radio-group v-model="picked">
+      <v-radio label="Todos los post" value="allPosts"></v-radio>
+      <v-radio label="Todos los Hobbits" value="Hobbits"
+      ></v-radio>
+    </v-radio-group>
+    <v-radio-group
+      v-model="picked"
+      row
+    >
+      <v-radio label="Gollum" value="Gollum"></v-radio>
+      <v-radio label="Frodo" value="Frodo"></v-radio>
+      <v-radio label="Bilbo" value="Bilbo"></v-radio>
+      <v-radio label="Sam" value="Sam"></v-radio>
+      <v-radio label="Merry" value="Merry"></v-radio>
+      <v-radio label="Pippin" value="Pippin"></v-radio>
+    </v-radio-group>
     <v-row>
       <v-col
         cols="12"
@@ -78,7 +66,6 @@ export default {
     }
   },
   created() {
-  // GET request using fetch with async/await
    this.getPost()
   },
   methods: {
