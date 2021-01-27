@@ -7,22 +7,24 @@
       ></v-progress-circular>
     </v-overlay>
     <v-radio-group v-model="picked">
-      <v-radio label="Todos los post" value="allPosts"></v-radio>
-      <v-radio label="Todos los Hobbits" value="Hobbits"
+      <p> Mostar por:</p>
+      <v-radio label="Los últimos post" value="allPosts"></v-radio>
+      <v-radio label="Los últimos post de los Hobbits" value="Hobbits"
       ></v-radio>
     </v-radio-group>
+    <p> Filtrar por:</p>
     <v-radio-group
       v-model="picked"
       row
     >
       <v-radio label="Gollum" value="Gollum"></v-radio>
-      <v-radio label="Frodo" value="Frodo"></v-radio>
-      <v-radio label="Bilbo" value="Bilbo"></v-radio>
-      <v-radio label="Sam" value="Sam"></v-radio>
-      <v-radio label="Merry" value="Merry"></v-radio>
+      <v-radio label="Frodo"  value="Frodo"></v-radio>
+      <v-radio label="Bilbo"  value="Bilbo"></v-radio>
+      <v-radio label="Sam"    value="Sam"></v-radio>
+      <v-radio label="Merry"  value="Merry"></v-radio>
       <v-radio label="Pippin" value="Pippin"></v-radio>
     </v-radio-group>
-    <v-row>
+    <v-row class="mt-9">
       <v-col
         cols="12"
         sm="4" 
@@ -57,7 +59,7 @@ export default {
             this.getPost()
           break;
         case 'Hobbits':
-            this.filterHobbies(this.post)
+            this.filterHobbits(this.post)
           break;
         default:
           this.filterHobbit(this.post, this.picked)
@@ -78,7 +80,7 @@ export default {
       this.overlay = false
       console.log(this.postData)
     },
-    filterHobbies: function (data) {
+    filterHobbits: function (data) {
       this.postHobbits = data.filter((item)=>{
         return  item.data.selftext.includes('Gollum')
             || item.data.selftext.includes('Frodo') 

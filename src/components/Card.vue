@@ -12,13 +12,14 @@
     <v-card-title>
       {{ postData.data.title }}
     </v-card-title>
+    <v-card-text><b>Creado por: </b>{{postData.data.author}}</v-card-text>
     <v-card-actions v-if="postData.data.selftext">
       <v-btn
-        color= "#0093FC"
-        text
+        color= "#00D389"
+        class="white--text"
         @click="show = !show"
       >
-        Ver mas..
+        <span>Ver mas..</span>
       </v-btn>
     </v-card-actions>
     <v-expand-transition>
