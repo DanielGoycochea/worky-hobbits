@@ -79,7 +79,7 @@ export default {
       this.post = data.data.children;
       this.postData = this.post
       this.overlay = false
-      console.log(this.postData)
+      console.log('all', this.postData)
     },
     filterHobbits: function (data) {
       this.postHobbits = data.filter((item)=>{
@@ -94,7 +94,7 @@ export default {
             || item.data.selftext.includes('Pippin')
             || item.data.selftext.includes('Smeagol')
       })
-      console.log('data', this.postHobbits)
+      console.log('Hobbits', this.postHobbits)
       this.postData = this.postHobbits
     },
     filterHobbit: function (data, hobbit) {
@@ -102,7 +102,7 @@ export default {
           return item.data.selftext.includes(hobbit)
         })
         this.postData = postHobbit
-        console.log('data', postHobbit)
+        console.log('Hobbit', postHobbit)
     }
   },
 }
