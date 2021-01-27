@@ -26,32 +26,36 @@
       <v-radio label="Pippin" value="Pippin"></v-radio>
     </v-radio-group>
     <v-row class="mt-9">
+      <div v-if="postData.length === 0" > 
+        No hay nada que mostar
+      </div>
       <v-col
         cols="12"
         sm="4" 
-        v-for="post in postData" 
-        :key="post.data.id">
-        <card :postData = "post" />
+        v-for="item in postData" 
+        :key="item.data.id">
+        <card :postData = "item" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import Card from './Card'
+
+import Card from './Card';
+
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   components: {
     Card
   },
   data() {
     return {
       overlay: false,
-      post:{},
+      posts:{},
       postData: {},
-      postHobbits:{},
       picked: 'allPosts'
-    }
+    };
   },
   watch: {
     picked: function(){
@@ -60,29 +64,29 @@ export default {
             this.getPost()
           break;
         case 'Hobbits':
-            this.filterHobbits(this.post)
+            this.filterHobbits(this.posts)
           break;
         default:
-          this.filterHobbit(this.post, this.picked)
+          this.filterHobbit(this.posts, this.picked)
           break;
       }
     }
   },
   created() {
-   this.getPost()
+   this.getPost();
   },
   methods: {
     getPost: async function () {
       this.overlay = true
       const response = await fetch("https://www.reddit.com/r/lotr/new.json?limit=100");
-      const data = await response.json();
-      this.post = data.data.children;
-      this.postData = this.post
-      this.overlay = false
-      console.log('all', this.postData)
+      const {data:{children}} = await response.json();
+      this.posts = children;
+      this.postData = this.posts;
+      this.overlay = false;
+      console.log('all Posts', this.postData);
     },
     filterHobbits: function (data) {
-      this.postHobbits = data.filter((item)=>{
+       this.postData = data.filter((item)=>{
         return  item.data.selftext.includes('Gollum')
             || item.data.selftext.includes('Frodo') 
             || item.data.selftext.includes('Bilbo')
@@ -93,16 +97,14 @@ export default {
             || item.data.selftext.includes('Peregrin')
             || item.data.selftext.includes('Pippin')
             || item.data.selftext.includes('Smeagol')
-      })
-      console.log('Hobbits', this.postHobbits)
-      this.postData = this.postHobbits
+      });
+      console.log('Hobbits Posts', this.postData);
     },
     filterHobbit: function (data, hobbit) {
-      const postHobbit = data.filter((item)=>{
-          return item.data.selftext.includes(hobbit)
-        })
-        this.postData = postHobbit
-        console.log('Hobbit', postHobbit)
+      this.postData = data.filter((item)=>{
+        return item.data.selftext.includes(hobbit)
+      });
+      console.log('Hobbit Posts', this.postData);
     }
   },
 }
