@@ -5,13 +5,16 @@ Prueba técnica para el ingresso a Worky
 ## Comenzando 🚀
 ### Pre-requisitos 📋
 
-Tener instalado node.js, si aun no lo tienes puedes instalardo  [aquí](https://nodejs.org/es/download//)
+node.js, si aun no lo tienes puedes instalardo  [aquí](https://nodejs.org/es/download/)
+git, si aun no lo tienes puedes instalardo  [aquí](https://git-scm.com/)
+
 ### Instalación 🔧
 
 Descarga este repositorio  y ejecuta los siguientes comandos
 
 ```bash
-$ cd worky
+$ git clone https://github.com/DanielGoycochea/worky-hobbits.git
+$ cd worky-hobbits
 $ npm install
 $ npm run serve
 ```
