@@ -1,24 +1,21 @@
-# worky
+# Prueba Técnica Worky
 
-## Project setup
-```
-npm install
-```
+Prueba técnica para el ingresso a Worky
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Comenzando 🚀
+### Pre-requisitos 📋
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Tener instalado node.js, si aun no lo tienes puedes instalardo  [aquí](https://nodejs.org/es/download//)
+### Instalación 🔧
 
-### Lints and fixes files
-```
-npm run lint
-```
+Descarga este repositorio  y ejecuta los siguientes comandos
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```bash
+$ cd worky
+$ npm install
+$ npm run serve
+```
+## Creado con con 🛠️
+
+* [Vue.js](https://vuejs.org/) - Framework JavaScript Progresivo
+* [Vuetify](https://vuetifyjs.com/) - Libreria Vue UI 
