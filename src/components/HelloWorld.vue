@@ -4,6 +4,7 @@
       <v-progress-circular
         indeterminate
         size="64"
+        color="#0093FC"
       ></v-progress-circular>
     </v-overlay>
     <v-radio-group v-model="picked">
